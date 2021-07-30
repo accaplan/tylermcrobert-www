@@ -15,10 +15,21 @@ const TimelineWrapper = styled.section`
   height: 100vh;
   color: white;
   padding: 1.2rem;
-  padding-top: 4rem;
+  z-index: 1000;
+
+  img {
+    width: 500px;
+    height: 500px;
+  }
 `
 
-const Grid = styled.div`
+const Grid = styled.div<{ bottom?: boolean }>`
+  position: absolute;
+  width: 100vw;
+  ${p => (p.bottom ? 'bottom' : 'top')}: 0;
+  left: 0;
+  bottom: 0;
+  padding: ${size[0]};
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 
@@ -40,7 +51,6 @@ const PowerTenStyle = styled.div`
   position: absolute;
   right: 0;
   top: 50%;
-  border: 1px solid blue;
   transform: translate3d(-50%, -50%, 0);
 
   > div {
@@ -54,7 +64,6 @@ const PowerTenStyle = styled.div`
 `
 const MetersStyle = styled.div`
   transform-origin: top left;
-  border: 1px solid blue;
   transform: translate3d(-50%, 50%, 0);
   position: absolute;
   padding-left: ${size[3]};
@@ -79,7 +88,6 @@ const PowerTenIndicator: React.FC<{ number: number }> = () => {
 const SquareStyle = styled.div`
   width: 100vw;
   height: 100vh;
-  border: 1px solid blue;
   position: absolute;
   top: 0;
   left: 0;
@@ -100,17 +108,26 @@ const Timeline: NextPage<{
     <Layout title="Info">
       <TimelineWrapper onClick={() => setIndex(index + 1)}>
         <Grid>
-          <div>{event.title}</div>
-          <div>•</div>
           <div>{event.date}</div>
+          <div>{event.title}</div>
+          <div>
+            <div>03:02 PM</div>
+          </div>
         </Grid>
         <MainGrid>
           <MetersStyle>
             <div>1,000 meters</div>
           </MetersStyle>
-          <SquareStyle>lorem ipsum dolor sit</SquareStyle>
-          <PowerTenIndicator number={0} />
+          <SquareStyle>
+            <img src="https://kadist.org/wp-content/uploads/2016/04/futurefarmers_powersof10.jpg" />
+          </SquareStyle>
+          <PowerTenIndicator number={2} />
         </MainGrid>
+        <Grid bottom>
+          <div>Butterworth Hospital</div>
+          <div>•</div>
+          <div>Grand Rapids, MI</div>
+        </Grid>
       </TimelineWrapper>
     </Layout>
   )
