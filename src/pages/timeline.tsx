@@ -63,14 +63,23 @@ const PowerTenStyle = styled.div`
   }
 `
 const MetersStyle = styled.div`
-  transform-origin: top left;
-  transform: translate3d(-50%, 50%, 0);
   position: absolute;
-  padding-left: ${size[3]};
+
+  height: 100%;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  align-items: center;
 
   > div {
     transform: rotate(-90deg);
-    width: 100vh;
+    transform-origin: top left;
+
+    > div {
+      transform: translate3d(-50%, 0, 0);
+      padding-top: 1rem;
+    }
   }
 `
 
@@ -116,7 +125,9 @@ const Timeline: NextPage<{
         </Grid>
         <MainGrid>
           <MetersStyle>
-            <div>1,000 meters</div>
+            <div>
+              <div>1,000,000 meters</div>
+            </div>
           </MetersStyle>
           <SquareStyle>
             <img src="https://kadist.org/wp-content/uploads/2016/04/futurefarmers_powersof10.jpg" />
