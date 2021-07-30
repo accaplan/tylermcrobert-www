@@ -19,14 +19,22 @@ const TimelineWrapper = styled.section`
 const Timeline: NextPage<{
   data: {
     title?: string
+    date?: string
   }[]
 }> = ({ data }) => {
   return (
     <Layout title="Info">
       <TimelineWrapper>
-        {data.map(timeline => (
-          <div key={timeline.title}>{timeline.title}</div>
-        ))}
+        {data.map(tl => {
+          const d = tl.date && new Date(tl.date).toDateString()
+          return (
+            <div key={tl.title}>
+              <div>{tl.title}</div>
+              <div>{d}</div>
+              <br />
+            </div>
+          )
+        })}
       </TimelineWrapper>
     </Layout>
   )
