@@ -3,6 +3,7 @@ import { NextPage, GetStaticProps } from 'next'
 import { Layout } from 'components'
 import styled from 'styled-components'
 import { client } from 'lib/sanity'
+import { useState } from 'react'
 
 const TimelineWrapper = styled.section`
   background: black;
@@ -16,25 +17,35 @@ const TimelineWrapper = styled.section`
   padding-top: 4rem;
 `
 
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  > :nth-child(2) {
+    text-align: center;
+  }
+
+  > :nth-child(3) {
+    text-align: right;
+  }
+`
+
 const Timeline: NextPage<{
   data: {
     title?: string
     date?: string
   }[]
 }> = ({ data }) => {
+  const [index, setIndex] = useState(0)
+  const event = data[index]
   return (
     <Layout title="Info">
-      <TimelineWrapper>
-        {data.map(tl => {
-          const d = tl.date && new Date(tl.date).toDateString()
-          return (
-            <div key={tl.title}>
-              <div>{tl.title}</div>
-              <div>{d}</div>
-              <br />
-            </div>
-          )
-        })}
+      <TimelineWrapper onClick={() => setIndex(index + 1)}>
+        <Grid>
+          <div>{event.title}</div>
+          <div>•</div>
+          <div>{event.date}</div>
+        </Grid>
       </TimelineWrapper>
     </Layout>
   )
