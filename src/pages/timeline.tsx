@@ -112,14 +112,18 @@ const Timeline: NextPage<{
   }[]
 }> = ({ data }) => {
   const [index, setIndex] = useState(0)
-  const event = data[index]
-  ons
+  const { dateTime, title: eventTitle } = data[index]
+  const dateStr = new Date(dateTime || '').toDateString()
+  const timeStr = dateTime?.split('T')[1].split('.')[0]
+
   return (
     <Layout title="Info">
       <TimelineWrapper onClick={() => setIndex(index + 1)}>
         <Grid>
-          <div>{new Date(event.dateTime).toDateString()}</div>
-          <div>{event.title}</div>
+          <div>
+            {dateStr} {timeStr}
+          </div>
+          <div>{eventTitle}</div>
           <div>
             <div>03:02 PM</div>
           </div>
