@@ -108,16 +108,17 @@ const SquareStyle = styled.div`
 const Timeline: NextPage<{
   data: {
     title?: string
-    date?: string
+    dateTime?: string
   }[]
 }> = ({ data }) => {
   const [index, setIndex] = useState(0)
   const event = data[index]
+  ons
   return (
     <Layout title="Info">
       <TimelineWrapper onClick={() => setIndex(index + 1)}>
         <Grid>
-          <div>{event.date}</div>
+          <div>{new Date(event.dateTime).toDateString()}</div>
           <div>{event.title}</div>
           <div>
             <div>03:02 PM</div>
