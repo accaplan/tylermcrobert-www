@@ -22,6 +22,8 @@ export const sizeVars = remScale
 export const colors = {
   primary: '#000000',
   secondary: '#ffffff',
+  blue: 'navy',
+  gray: 'grey',
 }
 
 export const fontFamilies = {

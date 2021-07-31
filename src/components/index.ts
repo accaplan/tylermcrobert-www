@@ -25,8 +25,10 @@ import DotHead from './DotHead/DotHead'
 import Playlists from './Playlists/Playlists'
 import ViewportVideo from './ViewportVideo/ViewportVideo'
 import ModuleTimedSlides from './ModuleTimedSlides/ModuleTimedSlides'
+import { LockScreen } from './LockScreen'
 
 export {
+  LockScreen,
   ModuleTimedSlides,
   ViewportVideo,
   ModuleMobileWebsite,

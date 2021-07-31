@@ -1,5 +1,5 @@
 import React from 'react'
-import { PreviewIndicator } from 'components'
+import { PreviewIndicator, LockScreen } from 'components'
 import App, { AppProps, AppContext } from 'next/app'
 import { getContexts } from 'lib/api'
 import { AppProvider } from 'providers'
@@ -10,6 +10,7 @@ type MyAppProps = AppProps & { isPreview: boolean; contexts: CsContext[] }
 function MyApp({ Component, pageProps, isPreview, contexts }: MyAppProps) {
   return (
     <AppProvider contexts={contexts}>
+      <LockScreen />
       <style global jsx>{`
         @font-face {
           font-family: 'Suisse';

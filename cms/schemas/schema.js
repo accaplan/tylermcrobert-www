@@ -7,6 +7,8 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 import caseStudy from './caseStudy'
 import context from './context'
 import webFrameTheme from './webFrameTheme'
+import photoSet from './photoSet'
+import timeline from './timeline'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -14,5 +16,11 @@ export default createSchema({
   name: 'default',
   // Then proceed to concatenate our document type
   // to the ones provided by any plugins that are installed
-  types: schemaTypes.concat([caseStudy, context, webFrameTheme]),
+  types: schemaTypes.concat([
+    caseStudy,
+    context,
+    webFrameTheme,
+    photoSet,
+    timeline,
+  ]),
 })
