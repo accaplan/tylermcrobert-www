@@ -9,10 +9,13 @@ import { size } from 'style'
 const TimelineWrapper = styled.section`
   background: black;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+
+  top: 10vh;
+  height: 90vh;
+
+  left: 10vw;
+  width: 90vw;
+
   color: white;
   padding: 1.2rem;
   z-index: 1000;
@@ -25,7 +28,8 @@ const TimelineWrapper = styled.section`
 
 const Grid = styled.div<{ bottom?: boolean }>`
   position: absolute;
-  width: 100vw;
+  width: 90vw;
+
   ${p => (p.bottom ? 'bottom' : 'top')}: 0;
   left: 0;
   bottom: 0;
@@ -95,8 +99,9 @@ const PowerTenIndicator: React.FC<{ number: number }> = () => {
 }
 
 const SquareStyle = styled.div`
-  width: 100vw;
-  height: 100vh;
+  width: 90vw;
+  height: 90vh;
+
   position: absolute;
   top: 0;
   left: 0;
@@ -105,6 +110,11 @@ const SquareStyle = styled.div`
   justify-content: center;
 `
 
+const ScrollShim = styled.div`
+  height: 500vh;
+  background: url('https://www.nikecirculardesign.com/static/31b56b0a884a67e2deac082ae0b79ee1/6bd56/7562979f7d2740b49d8bcf7b325a0d72d0a2d6be_bda786095ae2a83c559a846255d87b86d85c4a04_as11-44-6552_orig-copy.jpg');
+  background-size: cover;
+`
 const Timeline: NextPage<{
   data: {
     title?: string
@@ -118,6 +128,7 @@ const Timeline: NextPage<{
 
   return (
     <Layout title="Info">
+      <ScrollShim />
       <TimelineWrapper onClick={() => setIndex(index + 1)}>
         <Grid>
           <div>
