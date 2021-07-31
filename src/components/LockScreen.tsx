@@ -1,16 +1,22 @@
 import { UNICODE } from '../constants'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { colors, size } from 'style'
 import styled from 'styled-components'
 
-// const PASSWORD = 'gotme'
+const PASSWORD = 'gotme'
 
 export const LockScreen: React.FC = () => {
+  const [success, setSuccess] = useState(false)
+
   return (
-    <LockScreenStyle>
-      <Form />
-      <CaptionStyle>Please enter password to continue</CaptionStyle>
-    </LockScreenStyle>
+    <>
+      {!success && (
+        <LockScreenStyle>
+          <Form onSuccess={() => setSuccess(true)} />
+          <CaptionStyle>Please enter password to continue</CaptionStyle>
+        </LockScreenStyle>
+      )}
+    </>
   )
 }
 
@@ -69,12 +75,19 @@ const FormWrapperStyle = styled.div`
   grid-gap: 1rem;
 `
 
-const Form: React.FC<{}> = ({}) => {
+const Form: React.FC<{ onSuccess: (c: boolean) => void }> = ({ onSuccess }) => {
+  const handleInputChange = (e: any) => {
+    if (e.target.value === PASSWORD) {
+      onSuccess(true)
+    }
+  }
+
+  useEffect(() => {}, [])
   return (
-    <FormStyle>
+    <FormStyle onSubmit={e => e.preventDefault()}>
       <img src="https://netacea-queue-assets.s3-eu-west-1.amazonaws.com/gap/v1/YZYGAP_LOGO_REFLEX_BLUE.svg" />
       <FormWrapperStyle>
-        <input type="password" />
+        <input type="password" onChange={e => handleInputChange(e)} />
         <button type="submit">{UNICODE.RIGHT}</button>
       </FormWrapperStyle>
     </FormStyle>
