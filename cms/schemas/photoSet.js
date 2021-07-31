@@ -1,10 +1,20 @@
 export default {
-  name: 'photoSet',
+  name: 'photo',
   type: 'document',
   fields: [
     {
-      name: 'title',
+      name: 'location',
       type: 'string',
+      validation: Rule => Rule.required(),
+    },
+    {
+      name: 'caption',
+      type: 'string',
+      validation: Rule => Rule.required(),
+    },
+    {
+      name: 'src',
+      type: 'image',
       validation: Rule => Rule.required(),
     },
   ],
