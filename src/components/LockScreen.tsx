@@ -21,15 +21,15 @@ export const LockScreen: React.FC = () => {
 }
 
 const CaptionStyle = styled.small`
-  font-size: 20px;
+  font-size: 10px;
   color: ${colors.gray};
 `
 
 const LockScreenStyle = styled.section`
   text-transform: uppercase;
 
-  border-radius: 100px;
-  box-shadow: 0 0 5rem ${colors.secondary};
+  border-radius: ${size[0]};
+  box-shadow: 0 0 5rem ${colors.gray};
 
   bottom: ${size[0]};
   left: ${size[0]};
@@ -38,10 +38,11 @@ const LockScreenStyle = styled.section`
   position: fixed;
   display: grid;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
 
   width: 50vh;
   height: 50vh;
+  max-width: calc(100vw - (${size[0]} * 2));
 
   color: ${colors.blue};
   background: ${colors.secondary};
@@ -54,6 +55,7 @@ const FormStyle = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: ${size[5]};
 
   button,
   input {
@@ -66,6 +68,7 @@ const FormStyle = styled.form`
 
   img {
     width: ${size[5]};
+    margin-bottom: ${size[5]};
   }
 `
 

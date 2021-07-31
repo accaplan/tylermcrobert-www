@@ -23,7 +23,7 @@ export const colors = {
   primary: '#000000',
   secondary: '#ffffff',
   blue: 'navy',
-  gray: 'ltgrey',
+  gray: 'grey',
 }
 
 export const fontFamilies = {
