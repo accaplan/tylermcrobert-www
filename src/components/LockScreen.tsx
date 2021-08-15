@@ -27,16 +27,17 @@ const LockScreenStyle = styled.section`
 
   bottom: ${size[0]};
   left: ${size[0]};
-  padding: ${size[0]};
+  padding: ${size[2]};
 
   position: fixed;
   display: grid;
   align-items: center;
   justify-content: center;
 
-  width: 50vh;
-  height: 50vh;
-  max-width: calc(100vw - (${size[0]} * 2));
+  height: 30rem;
+  width: calc(100vw - 2rem);
+  max-height: calc(100vh - 2rem);
+  max-width: 20rem;
 
   color: ${colors.blue};
   background: ${colors.secondary};
@@ -44,11 +45,10 @@ const LockScreenStyle = styled.section`
   z-index: 1000000000000000000000000000000;
 `
 const FormStyle = styled.form`
-  grid-gap: ${size[0]};
+  grid-gap: ${size[4]};
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: ${size[5]};
 
   button,
   input {
@@ -57,11 +57,11 @@ const FormStyle = styled.form`
 
   input {
     border-bottom: 2px solid ${colors.blue};
+    width: 100%;
   }
 
   img {
     width: ${size[5]};
-    margin-bottom: ${size[5]};
   }
 `
 
