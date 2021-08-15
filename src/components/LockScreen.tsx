@@ -51,7 +51,7 @@ const LockScreenStyle = styled.section`
   align-items: center;
   justify-content: center;
 
-  height: 30rem;
+  height: 20rem;
   width: calc(100vw - 2rem);
   max-height: calc(100vh - 2rem);
   max-width: 20rem;
