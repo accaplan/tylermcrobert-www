@@ -2,11 +2,15 @@ import { UNICODE } from '../constants'
 import React, { useEffect, useState } from 'react'
 import { colors, size } from 'style'
 import styled from 'styled-components'
+import Cookies from 'js-cookie'
 
 const PASSWORD = 'gotme'
 
 export const LockScreen: React.FC = () => {
   const [success, setSuccess] = useState(false)
+  const isYzy = Cookies.get('ctx-id') === 'yzy-gap'
+
+  if (!isYzy) return <div></div>
 
   return (
     <>
