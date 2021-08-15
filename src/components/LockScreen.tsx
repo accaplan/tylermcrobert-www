@@ -13,17 +13,11 @@ export const LockScreen: React.FC = () => {
       {!success && (
         <LockScreenStyle>
           <Form onSuccess={() => setSuccess(true)} />
-          <CaptionStyle>Please enter password to continue</CaptionStyle>
         </LockScreenStyle>
       )}
     </>
   )
 }
-
-const CaptionStyle = styled.small`
-  font-size: 10px;
-  color: ${colors.gray};
-`
 
 const LockScreenStyle = styled.section`
   text-transform: uppercase;
@@ -50,7 +44,6 @@ const LockScreenStyle = styled.section`
   z-index: 1000000000000000000000000000000;
 `
 const FormStyle = styled.form`
-  max-height: ${size[0]};
   grid-gap: ${size[0]};
   display: flex;
   flex-direction: column;
@@ -76,6 +69,12 @@ const FormWrapperStyle = styled.div`
   display: grid;
   grid-template-columns: 1fr auto;
   grid-gap: 1rem;
+
+  input::placeholder {
+    font-size: 10px;
+    position: relative;
+    top: -3px;
+  }
 `
 
 const Form: React.FC<{ onSuccess: (c: boolean) => void }> = ({ onSuccess }) => {
@@ -90,7 +89,11 @@ const Form: React.FC<{ onSuccess: (c: boolean) => void }> = ({ onSuccess }) => {
     <FormStyle onSubmit={e => e.preventDefault()}>
       <img src="https://netacea-queue-assets.s3-eu-west-1.amazonaws.com/gap/v1/YZYGAP_LOGO_REFLEX_BLUE.svg" />
       <FormWrapperStyle>
-        <input type="password" onChange={e => handleInputChange(e)} />
+        <input
+          type="password"
+          onChange={e => handleInputChange(e)}
+          placeholder="Please enter password to continue"
+        />
         <button type="submit">{UNICODE.RIGHT}</button>
       </FormWrapperStyle>
     </FormStyle>
