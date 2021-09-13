@@ -14,7 +14,7 @@ const Nav = () => {
         <S.Content>
           <div>
             <Link href="/">
-              <a>Tyler McRobert</a>
+              <a>Asher Caplan</a>
             </Link>
             <CurationNav />
           </div>

@@ -22,9 +22,7 @@ const Info: React.FC<{
           <div>
             <DotHead>Bio</DotHead>
             <LargeHead>
-              I&apos;m Tyler McRobert, a Midwest–born designer &amp; web
-              developer living in Portland, Oregon. I work hard to create
-              beautiful, impactful work with meaning.
+              I&apos;m Asher Caplan, an American living in Zurich, Swtizerland &amp; and working within architecture, as a transdiciplinary designer.
             </LargeHead>
           </div>
         </S.Section>
@@ -67,11 +65,11 @@ const Contact = () => (
   <S.TwoCol>
     <div>
       &#9679; E-M→{' '}
-      <a href="mailto:hello@tylermcrobert.com">hello@tylermcrobert.com</a>
+      <a href="mailto:ash@romanceoffice.com">ash@romanceoffice.com</a>
     </div>
     <div>
       &#9679; IG→{' '}
-      <a href="http://instagram.com/tylermcrobert">@tylermcrobert</a>{' '}
+      <a href="http://instagram.com/thatsweetash">@thatsweetash</a>{' '}
     </div>
   </S.TwoCol>
 )

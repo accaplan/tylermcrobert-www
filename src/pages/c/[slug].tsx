@@ -23,7 +23,7 @@ const Page: React.FC<PageProps> = ({
   }
 
   return (
-    <Layout title={`Tyler McRobert ✕ ${csContextData.title}`}>
+    <Layout title={`Asher Caplan ✕ ${csContextData.title}`}>
       <CaseStudyPicker context={csContextData} />
     </Layout>
   )

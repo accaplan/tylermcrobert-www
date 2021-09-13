@@ -1,11 +1,11 @@
 {
   "root": true,
-  "project": {
-    "name": "Tyler McRobert"
-  },
   "api": {
-    "projectId": "n1wxk3oc",
+    "projectId": "zou8g26a",
     "dataset": "production"
+  },
+  "project": {
+    "name": "Asher Caplan"
   },
   "plugins": [
     "@sanity/base",
